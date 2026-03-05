@@ -38,6 +38,12 @@ return (
           />
         </div>
       </div>
+      <footer className="mt-12 py-8 border-t border-slate-200 text-center">
+  <p className="text-slate-400 text-xs font-medium uppercase tracking-widest">
+    Developed by Javishs • Dealer Source x Interspan Division
+  </p>
+  <p className="text-slate-300 text-[10px] mt-1">© 2026 Internal Inventory Hub v1.0</p>
+</footer>
     </div>
 
     <main className="max-w-6xl mx-auto px-6 mt-10">
