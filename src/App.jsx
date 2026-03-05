@@ -2,18 +2,25 @@ import React, { useState } from 'react';
 import { partsData } from './data/parts';
 import PartCard from './components/molecules/PartCard.jsx';
 import PartModal from './components/organisms/PartModal.jsx';
+import Login from './components/Login';
+
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [searchQuery, setSearchQuery] = useState(""); 
   const [selectedPart, setSelectedPart] = useState(null);
- 
 
   const filteredParts = partsData.filter(part => 
-    part.partNumber.toLowerCase().includes(searchQuery.toLowerCase())
+  part.partNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  part.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+if (!isAuthenticated) {
+    return <Login onLogin={() => setIsAuthenticated(true)} />;
+  }
+
 return (
-  <div className="min-h-screen bg-[#bdc6cf]">
+  <div className="min-h-screen bg-slate-900">
      <div className="bg-[#FF6600] pb-12 pt-8 px-4 rounded-b-[3rem] shadow-xl">
       <div className="max-w-6xl mx-auto">
         <hi className="text-3xl tracking-tight mb-6">
