@@ -1,10 +1,10 @@
 import React from 'react';
 
  function PartCard({ part, onClick }) {
-
+  
   const generatedImages = Array.from({ length: part.imageCount || 0 }, (_, i) => 
-    `/images/${part.partNumber}/${part.partNumber}-${i + 1}.jpeg`
-  );
+  `${import.meta.env.BASE_URL}images/${part.partNumber}/${i + 1}.jpeg`
+);
 
   const mainImage = generatedImages.length > 0 
     ? generatedImages[0] 

@@ -132,7 +132,7 @@ export const partsData = [
 
 {
   id: 16,
-  partNumber: "TEYH3040B",
+  partNumber: "TEYH3045B",
   imageCount: 6,
   description: "Breaker",
   location: "Interspan",

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 function PartModal({ part, onClose }) {
-  const [selectedImg, setSelectedImg] = useState(null); // The "Zoom" memory
+  const [selectedImg, setSelectedImg] = useState(null); 
   if (!part) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
       <div className="bg-white w-full max-w-5xl max-h-[90vh] rounded-4xl overflow-hidden shadow-2xl flex flex-col relative">
         
-        {/* Header (Sticky) */}
+        
         <div className="p-6 border-b flex justify-between items-center bg-white sticky top-0 z-10">
           <div>
             <h2 className="text-2xl font-black text-slate-900 leading-none">{part.partNumber}</h2>
@@ -21,7 +21,7 @@ function PartModal({ part, onClose }) {
           </button>
         </div>
 
-        {/* Gallery Grid */}
+        
         <div className="p-8 overflow-y-auto bg-slate-50/50">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {part.images?.map((img, index) => (
