@@ -1,9 +1,14 @@
 import React from 'react';
 
  function PartCard({ part, onClick }) {
-  
-  const generatedImages = Array.from({ length: part.imageCount || 0 }, (_, i) => 
-  `${import.meta.env.BASE_URL}images/${part.partNumber}/${i + 1}.jpeg`
+ 
+
+const [status, setStatus] = React.useState(null);
+const handleStatusChange = (type) => {
+  setStatus(status === type ? null : type);
+};
+const generatedImages = Array.from({ length: part.imageCount || 0 }, (_, i) => 
+  `${import.meta.env.BASE_URL}images/${part.partNumber}/${part.partNumber}-${i + 1}.jpeg`
 );
 
   const mainImage = generatedImages.length > 0 
@@ -42,12 +47,21 @@ import React from 'react';
         {/* Status Section  */}
         <div className="flex gap-4 pt-3 border-t border-slate-50">
           <label className="flex items-center gap-2 cursor-pointer group/check">
-            <input type="checkbox" className="w-5 h-5 rounded border-slate-300 text-green-600 focus:ring-green-500" />
+            <input 
+            type="checkbox" 
+            className="w-5 h-5 rounded border-slate-300 text-green-600"
+            checked={status === "good"}
+            onChange={() => handleStatusChange("good")}
+            disabled={status === "not-good"} />
             <span className="text-sm font-bold text-slate-600 group-hover/check:text-green-600">Good</span> 
           </label>
           
           <label className="flex items-center gap-2 cursor-pointer group/check">
-            <input type="checkbox" className="w-5 h-5 rounded border-slate-300 text-red-600 focus:ring-red-500" />
+            <input type="checkbox" 
+            className="w-5 h-5 rounded border-slate-300 text-red-600"
+            checked={status === "not-good"}
+            onChange={() => handleStatusChange("not-good")}
+            disabled={status === "good"} />
             <span className="text-sm font-bold text-slate-600 group-hover/check:text-red-600">Not Good</span> 
           </label>
         </div>

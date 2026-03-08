@@ -5,6 +5,8 @@
   "type": "module",
   "homepage": "https://Javishs.github.io/ds-inter-inventory/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

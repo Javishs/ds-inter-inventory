@@ -5,7 +5,7 @@ function SearchBar({ searchQuery, setSearchQuery }) {
     <div style={{ marginBottom: '30px', textAlign: 'center' }}>
       <input
         type="text"
-        placeholder="Search Part Number (e.g. JXD63...)"
+        placeholder="Search Part Number"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)} 
         style={{
